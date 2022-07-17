@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Slf4j
 @Entity
@@ -19,24 +20,30 @@ public class Partner extends AbstractEntity {
     private static final String PREFIX_PARTNER = "ptn_";
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     // pk를 외부에 노출시키지 않게 대체 키 역할로 사용
-    @Column(name = "partner_token", nullable = false, unique = true)
+    @Column(name = "partner_token", unique = true)
+    @NotNull
     private String partnerToken;
 
-    @Column(name = "partner_name", nullable = false)
+    @Column(name = "partner_name")
+    @NotNull
     private String partnerName;
 
-    @Column(name = "business_no", nullable = false, unique = true)
+    @Column(name = "business_no", unique = true)
+    @NotNull
     private String businessNo;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", unique = true)
+    @NotNull
     private String email;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    @NotNull
     private Status status;
 
     @Getter

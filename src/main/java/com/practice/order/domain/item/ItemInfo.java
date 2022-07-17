@@ -16,6 +16,15 @@ public class ItemInfo {
         private final Long itemPrice;
         private final Item.Status status;
         private final List<ItemOptionGroup> itemOptionGroupList;
+
+        public Main(Item item, List<ItemOptionGroup> itemOptionGroupInfoList) {
+            this.itemToken = item.getItemToken();
+            this.partnerId = item.getPartnerId();
+            this.itemName = item.getItemName();
+            this.itemPrice = item.getItemPrice();
+            this.status = item.getStatus();
+            this.itemOptionGroupList = itemOptionGroupInfoList;
+        }
     }
 
     @Getter

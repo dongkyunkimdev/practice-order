@@ -6,8 +6,6 @@ public interface ItemReader {
 
     Item getItemBy(String itemToken);
 
-    List<Item> findItemAllBy(List<String> itemTokenList);
-
-    List<ItemInfo.ItemOptionGroup> getItemOptionSeries(Item item);
+    List<ItemInfo.ItemOptionGroupInfo> getItemOptionSeries(Item item);
 
 }

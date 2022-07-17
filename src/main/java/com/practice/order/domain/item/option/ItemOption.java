@@ -1,8 +1,10 @@
-package com.practice.order.domain.item;
+package com.practice.order.domain.item.option;
 
 import com.practice.order.common.exception.InvalidParamException;
 import com.practice.order.domain.AbstractEntity;
+import com.practice.order.domain.item.optiongroup.ItemOptionGroup;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +18,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "item_options")
-public class ItemOption extends AbstractEntity {
+public class  ItemOption extends AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,6 +41,7 @@ public class ItemOption extends AbstractEntity {
     @NotNull
     private Long itemOptionPrice;
 
+    @Builder
     public ItemOption(
             ItemOptionGroup itemOptionGroup,
             Integer ordering,
@@ -55,4 +58,5 @@ public class ItemOption extends AbstractEntity {
         this.itemOptionName = itemOptionName;
         this.itemOptionPrice = itemOptionPrice;
     }
+
 }
